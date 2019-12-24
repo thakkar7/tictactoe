@@ -49,21 +49,41 @@ class frontPage extends React.Component {
   handleSaveNames = () =>{
     localStorage.setItem("CPU_player",this.state.CPU)
     localStorage.setItem("Difficulty",this.state.difficulty)
-    localStorage.setItem("player_1",this.state.player1)
-    localStorage.setItem("player_2",this.state.player2)
+    if(this.state.player1==="")
+      localStorage.setItem("player_1","P_1")
+    else
+      localStorage.setItem("player_1",this.state.player1)
+    
+    if(this.state.player2==="")
+      localStorage.setItem("player_2","P_2")
+    else
+      localStorage.setItem("player_2",this.state.player1)
   }
 
   render() {
     return (
-      <div className="game">
+      <div className="mainDiv">
 
-        <button className="btn" onClick={()=>this.handlePlayCpuEasy()}>Play against CPU Easy</button>
-        <button className="btn" onClick={()=>this.handlePlayUser()}>Two Player Game</button>
-        <button className="btn" onClick={()=>this.handlePlayCpuHard()}>Play against CPU AI Bot</button>
+        <div className="btnGroup">
+          <a href="#" onClick={()=>this.handlePlayUser()} className="btnOne">
+            2 Player Game
+          </a>
+
+          <a href="#" onClick={()=>this.handlePlayCpuHard()} className="btnTwo">
+           <strong> vs CPU (Hard) </strong>
+          </a>
+
+          <div className="btnBg"></div>
+
+          <a href="#" onClick={()=>this.handlePlayCpuEasy()} className="btnThree">
+            vs CPU (Easy)
+          </a>  
+        </div>
+
         <h1>Enter your names</h1>
 
-        <input type="text" placeholder="Player 1" value={this.state.player1} onChange={this.handleName1} />
-        {!this.state.CPU && <input type="text" placeholder="Player 2" value={this.state.player2} onChange={this.handleName2} />}
+        <input type="text" placeholder="Player 1" value={this.state.player1} maxlength="50" required onChange={this.handleName1} />
+        {!this.state.CPU && <input type="text" placeholder="Player 2" value={this.state.player2} maxlength="50" required onChange={this.handleName2} />}
         <Link to="/board">                                                                                                        
           <button className="btn" onClick={()=>this.handleSaveNames()}>Start new game</button>
         </Link>
@@ -72,4 +92,7 @@ class frontPage extends React.Component {
   }
 }
 
-export default Scoreboard;
+export default frontPage;
+
+
+

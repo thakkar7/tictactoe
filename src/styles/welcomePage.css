@@ -1,0 +1,83 @@
+
+
+
+
+
+.mainDiv{
+	background-image: url("./bg_2.jpg");
+	opacity: 0.80;
+	height: 100vh;
+/* vh helps to cover the entire screen. 100vh makes 
+the div cover entire screen of any device in use*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+}
+
+.btnGroup{
+	font-family: helvetica,serif;
+	/* add height , width and padding for other devices*/
+	width: 450px;
+	height: 30px;
+	padding: 10px 40px;
+	position: relative;
+	z-index: 1;
+	background-color: transparent;
+}
+
+.btnOne{
+	width: 150px;
+	float: left;
+	color: black;
+	text-decoration: none;
+	line-height: 30px;
+	transition: 1.0s;
+	/*border-style:solid;*/
+	/*border-width: 5px;*/
+	/*border-color: black;*/
+}
+
+.btnThree{
+	width: 150px;
+	float: right;
+	text-decoration: none;
+	line-height: 30px;
+	color: black;
+
+}
+.btnTwo{
+	width: 150px;
+	float: right;
+	text-decoration: none;
+	line-height: 30px;
+	color: white;
+}
+
+.btnBg{
+	/*background-color: #fc76af;*/
+	background-color:  #F47469;
+	height: 50px;
+	width: 150px;
+	position: absolute;
+	top: 0;
+	margin-left:125px;
+	z-index:-1;
+	transition: 1.0s;
+	border-radius: 5px;
+}
+
+a.btnOne:hover ~ .btnBg{
+	margin-left: -25px;
+	transition: 1.0s;
+}
+
+a.btnTwo:hover + .btnBg{
+	margin-left: 275px;
+	transition: 1.0s;
+}
+
+
+
+
+

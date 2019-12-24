@@ -18,7 +18,7 @@ export function findWinner(boxes) {
         // Check if the game board contains winning combination
         if (boxes[a] && boxes[a] === boxes[b] && boxes[a] === boxes[c]) {
             // Return the winner ('x' or 'o')
-            return boxes[a]
+            return boxes[a]==='x'?1:2
         }
     }
 

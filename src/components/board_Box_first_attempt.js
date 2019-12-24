@@ -162,15 +162,6 @@ class Board extends React.Component{
 		isFilled = utils.areAllBoxesClicked(this.state.boxes)
 
 		var status
-		var bx1 = this.state.boxes[0]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx2 = this.state.boxes[1]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx3 = this.state.boxes[2]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx4 = this.state.boxes[3]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx5 = this.state.boxes[4]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx6 = this.state.boxes[5]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx7 = this.state.boxes[6]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx8 = this.state.boxes[7]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx9 = this.state.boxes[8]===null?(this.state.xIsNext?"bxx":"boo"):null;
 
 		if(winner===1 || winner===2){
 			status= `the winner is ${winner}!`
@@ -193,21 +184,21 @@ class Board extends React.Component{
 						<h2 className="board-heading">{status}</h2>
 
 						<div className="board-row">
-							<button className={`board__box boxOne ${bx1}`} onClick={()=>this.handleBoxClick(0)}>{this.state.boxes[0]}</button>
-							<button className={`board__box boxTwo ${bx2}`} onClick={()=>this.handleBoxClick(1)}>{this.state.boxes[1]}</button>
-							<button className={`board__box boxThree ${bx3}`} onClick={()=>this.handleBoxClick(2)}>{this.state.boxes[2]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(0)}/>{this.state.boxes[0]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(1)}/>{this.state.boxes[1]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(2)}/>{this.state.boxes[2]}</button>
 						</div>
 						
 						<div className="board-row">
-							<button className={`board__box boxFour ${bx4}`} onClick={()=>this.handleBoxClick(3)}>{this.state.boxes[3]}</button>
-							<button className={`board__box boxFive ${bx5}`} onClick={()=>this.handleBoxClick(4)}>{this.state.boxes[4]}</button>
-							<button className={`board__box boxSix ${bx6}`} onClick={()=>this.handleBoxClick(5)}>{this.state.boxes[5]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(3)}/>{this.state.boxes[3]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(4)}/>{this.state.boxes[4]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(5)}/>{this.state.boxes[5]}</button>
 						</div>
 						
 						<div className="board-row">
-							<button className={`board__box boxSeven ${bx7}`} onClick={()=>this.handleBoxClick(6)}>{this.state.boxes[6]}</button>
-							<button className={`board__box boxEight ${bx8}`} onClick={()=>this.handleBoxClick(7)}>{this.state.boxes[7]}</button>
-							<button className={`board__box boxNine ${bx9}`} onClick={()=>this.handleBoxClick(8)}>{this.state.boxes[8]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(6)}/>{this.state.boxes[6]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(7)}/>{this.state.boxes[7]}</button>
+							<button className="board__box" onClick={()=>this.handleBoxClick(8)}/>{this.state.boxes[8]}</button>
 						</div>
 					</div>
 				</div>

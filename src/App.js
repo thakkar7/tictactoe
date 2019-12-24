@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 // Import Board and Scoreboard views
 import  Board  from './components/board.js'
-import  Scoreboard  from './components/scoreboard'
+import  frontPage  from './components/FrontPage.js'
 
 import './styles/board.css'
 import './styles/box.css'
@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <BrowserRouter>
-          <Route exact path="/" component={Scoreboard}/>
+          <Route exact path="/" component={frontPage}/>
           <Route path="/board" component={Board}/>
         </BrowserRouter>
       </div>
