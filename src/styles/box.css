@@ -5,18 +5,19 @@
   padding: 0;
   width: calc(250px / 3);
   height: calc(250px / 3);
-  font-size: 32px;
-  color: #111;
+  font-size: 40px;
+  color: white;
   background: none;
   border:none;
 
   /*background-color: transparent;*/
-  border: 2px solid #fff;
+  border: 3px solid #fff;
+  border-radius: 10px;
 }
 
 
-.bxx:hover:before{content: "X";opacity:0.5;}
-.boo:hover:before{content: "O";opacity:0.5;}
+.bxx:hover:before{content: "X";opacity:0.5;color: white;font-weight: bold;}
+.boo:hover:before{content: "O";opacity:0.5;color: white;font-weight: bold;}
 
 .boxOne,.boxTwo,.boxThree{
 border-top:0px !important;

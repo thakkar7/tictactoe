@@ -86,6 +86,7 @@ class Board extends React.Component{
 
 	handleBoxClick(index){
 		user_play = !user_play
+		console.log(user_play);
 		const boxes =this.state.boxes.slice()
 		let history = this.state.history
 		if(utils.findWinner(boxes) || boxes[index]){
@@ -97,7 +98,7 @@ class Board extends React.Component{
 
 		boxes[index] = this.state.xIsNext?'x':'o'
 
-		history.push(this.state.xIsNext?'x':'o')
+		history.push(`${this.state.xIsNext?'x':'o'}'s move at index ${index+1}`)
 
 		this.setState({
 			boxes:boxes,
@@ -160,22 +161,30 @@ class Board extends React.Component{
 	render(){
 		var winner = utils.findWinner(this.state.boxes)
 		isFilled = utils.areAllBoxesClicked(this.state.boxes)
-
+		/* bb stands for box background. Changes the background of the boxes of the winner */
+		var bb1=null,bb2=null,bb0=null
+		const boxes = this.state.boxes.slice();
+		if((boxes[0]===boxes[1] && boxes[0]===boxes[2])&& boxes[0]!=null)
+		{
+			bb1 = "bcb"
+			bb0 = "bcb"
+			bb2 = "bcb"
+		}
 		var status
-		var bx1 = this.state.boxes[0]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx2 = this.state.boxes[1]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx3 = this.state.boxes[2]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx4 = this.state.boxes[3]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx5 = this.state.boxes[4]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx6 = this.state.boxes[5]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx7 = this.state.boxes[6]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx8 = this.state.boxes[7]===null?(this.state.xIsNext?"bxx":"boo"):null;
-		var bx9 = this.state.boxes[8]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx1 = boxes[0]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx2 = boxes[1]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx3 = boxes[2]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx4 = boxes[3]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx5 = boxes[4]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx6 = boxes[5]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx7 = boxes[6]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx8 = boxes[7]===null?(this.state.xIsNext?"bxx":"boo"):null;
+		var bx9 = boxes[8]===null?(this.state.xIsNext?"bxx":"boo"):null;
 
 		if(winner===1 || winner===2){
-			status= `the winner is ${winner}!`
+			status= `The winner is ${winner===1?this.state.Player_1:this.state.Player_2}!`
 		}else if(!winner && isFilled){
-			status="drawn"
+			status="Game tied!"
 		}
 		else
 		{
@@ -184,30 +193,37 @@ class Board extends React.Component{
 
 		return(
 			<div className="bodyDiv" >
-				<Link to="/" className="board-link">Restart Game</Link>
+				<Link to="/" className="boardLink btnNewGame">Restart Game</Link><br/>
 
 				{/* Game Board */}
-				{this.state.Player_1}  VS  {this.state.Player_2}
+				<span className="playerNames">{this.state.Player_1}  VS  {this.state.Player_2} </span>
+				
+
+				<span>
+					<span className="scoreOne">{this.state.P1_score}</span> <span className="scoreTwo">{this.state.P2_score}</span>
+				</span>
+
+				<br/>
 				<div className="board-wrapper">
 					<div className="board">
 						<h2 className="board-heading">{status}</h2>
 
 						<div className="board-row">
-							<button className={`board__box boxOne ${bx1}`} onClick={()=>this.handleBoxClick(0)}>{this.state.boxes[0]}</button>
-							<button className={`board__box boxTwo ${bx2}`} onClick={()=>this.handleBoxClick(1)}>{this.state.boxes[1]}</button>
-							<button className={`board__box boxThree ${bx3}`} onClick={()=>this.handleBoxClick(2)}>{this.state.boxes[2]}</button>
+							<button className={`board__box boxOne ${bx1} ${bb0}`} onClick={boxes[0]===null?()=>this.handleBoxClick(0):null}><strong>{this.state.boxes[0]}</strong></button>
+							<button className={`board__box boxTwo ${bx2} ${bb1}`} onClick={boxes[1]===null?()=>this.handleBoxClick(1):null}><strong>{this.state.boxes[1]}</strong></button>
+							<button className={`board__box boxThree ${bx3} ${bb2}`} onClick={boxes[2]===null?()=>this.handleBoxClick(2):null}><strong>{this.state.boxes[2]}</strong></button>
 						</div>
 						
 						<div className="board-row">
-							<button className={`board__box boxFour ${bx4}`} onClick={()=>this.handleBoxClick(3)}>{this.state.boxes[3]}</button>
-							<button className={`board__box boxFive ${bx5}`} onClick={()=>this.handleBoxClick(4)}>{this.state.boxes[4]}</button>
-							<button className={`board__box boxSix ${bx6}`} onClick={()=>this.handleBoxClick(5)}>{this.state.boxes[5]}</button>
+							<button className={`board__box boxFour ${bx4}`} onClick={boxes[3]===null?()=>this.handleBoxClick(3):null}><strong>{this.state.boxes[3]}</strong></button>
+							<button className={`board__box boxFive ${bx5}`} onClick={boxes[4]===null?()=>this.handleBoxClick(4):null}><strong>{this.state.boxes[4]}</strong></button>
+							<button className={`board__box boxSix ${bx6}`} onClick={boxes[5]===null?()=>this.handleBoxClick(5):null}><strong>{this.state.boxes[5]}</strong></button>
 						</div>
 						
 						<div className="board-row">
-							<button className={`board__box boxSeven ${bx7}`} onClick={()=>this.handleBoxClick(6)}>{this.state.boxes[6]}</button>
-							<button className={`board__box boxEight ${bx8}`} onClick={()=>this.handleBoxClick(7)}>{this.state.boxes[7]}</button>
-							<button className={`board__box boxNine ${bx9}`} onClick={()=>this.handleBoxClick(8)}>{this.state.boxes[8]}</button>
+							<button className={`board__box boxSeven ${bx7}`} onClick={boxes[6]===null?()=>this.handleBoxClick(6):null}><strong>{this.state.boxes[6]}</strong></button>
+							<button className={`board__box boxEight ${bx8}`} onClick={boxes[7]===null?()=>this.handleBoxClick(7):null}><strong>{this.state.boxes[7]}</strong></button>
+							<button className={`board__box boxNine ${bx9}`} onClick={boxes[8]===null?()=>this.handleBoxClick(8):null}><strong>{this.state.boxes[8]}</strong></button>
 						</div>
 					</div>
 				</div>
@@ -224,10 +240,10 @@ class Board extends React.Component{
 	            </div>
 
                 {/* Button to start new game */}
-                {(winner || isFilled) && <button className="btn" onClick={()=>this.handleContinueGame()}>next game</button>}
+                {(winner || isFilled) && <button className="btnNewGame" onClick={()=>this.handleContinueGame()}>next game</button>}
          		
                 
-              </div>
+            </div>
         )
 	}
 

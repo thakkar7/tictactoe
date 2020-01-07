@@ -50,12 +50,12 @@ class frontPage extends React.Component {
     localStorage.setItem("CPU_player",this.state.CPU)
     localStorage.setItem("Difficulty",this.state.difficulty)
     if(this.state.player1==="")
-      localStorage.setItem("player_1","P_1")
+      localStorage.setItem("player_1","Player_1")
     else
       localStorage.setItem("player_1",this.state.player1)
     
     if(this.state.player2==="")
-      localStorage.setItem("player_2","P_2")
+      localStorage.setItem("player_2","Player_2")
     else
       localStorage.setItem("player_2",this.state.player1)
   }
@@ -80,12 +80,13 @@ class frontPage extends React.Component {
           </a>  
         </div>
 
-        <h1>Enter your names</h1>
 
-        <input type="text" placeholder="Player 1" value={this.state.player1} maxlength="50" required onChange={this.handleName1} />
-        {!this.state.CPU && <input type="text" placeholder="Player 2" value={this.state.player2} maxlength="50" required onChange={this.handleName2} />}
+        <h1>Enter your name(s)</h1>
+
+        <input type="text" className="inputBox" placeholder="Player 1" value={this.state.player1} maxlength="50" required onChange={this.handleName1} />
+        {!this.state.CPU && <input type="text" className="inputBox" placeholder="Player 2" value={this.state.player2} maxlength="50" required onChange={this.handleName2} />}
         <Link to="/board">                                                                                                        
-          <button className="btn" onClick={()=>this.handleSaveNames()}>Start new game</button>
+          <button className="btnNewGame" onClick={()=>this.handleSaveNames()}><strong>Start new game</strong></button>
         </Link>
       </div>
     )

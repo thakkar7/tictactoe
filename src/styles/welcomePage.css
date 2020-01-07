@@ -1,12 +1,14 @@
-
-
-
-
+h1{
+	font-family: 'Girassol',cursive;
+	color: blue;
+}
 
 .mainDiv{
-	background-image: url("./bg_2.jpg");
+	background-image: url("./bg_11.jpg");
 	opacity: 0.80;
 	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100%;
 /* vh helps to cover the entire screen. 100vh makes 
 the div cover entire screen of any device in use*/
 	display: flex;
@@ -16,11 +18,16 @@ the div cover entire screen of any device in use*/
 }
 
 .btnGroup{
-	font-family: helvetica,serif;
+	font-family: 'Girassol',cursive;
+	font-weight: 600;
+	font-size: 19px;
 	/* add height , width and padding for other devices*/
 	width: 450px;
 	height: 30px;
 	padding: 10px 40px;
+	left: 2%;
+	/*align-items: center;*/
+	/*justify-content: center;	*/
 	position: relative;
 	z-index: 1;
 	background-color: transparent;
@@ -29,7 +36,7 @@ the div cover entire screen of any device in use*/
 .btnOne{
 	width: 150px;
 	float: left;
-	color: black;
+	color: blue ;
 	text-decoration: none;
 	line-height: 30px;
 	transition: 1.0s;
@@ -43,7 +50,7 @@ the div cover entire screen of any device in use*/
 	float: right;
 	text-decoration: none;
 	line-height: 30px;
-	color: black;
+	color: blue;
 
 }
 .btnTwo{
@@ -51,12 +58,14 @@ the div cover entire screen of any device in use*/
 	float: right;
 	text-decoration: none;
 	line-height: 30px;
-	color: white;
+	/*color: #7754ff;*/
+	color: blue;
 }
 
 .btnBg{
 	/*background-color: #fc76af;*/
-	background-color:  #F47469;
+	/*background-color:  #F47469;*/
+	background-color: #E8A264;
 	height: 50px;
 	width: 150px;
 	position: absolute;
@@ -77,7 +86,26 @@ a.btnTwo:hover + .btnBg{
 	transition: 1.0s;
 }
 
+.inputBox{
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px 4px #888888;
+}
 
+.btnNewGame{
+  padding: 12px 16px;
+  margin-top: 18px;
+  font-family: 'Girassol',cursive;
+  font-size: 16px;
+  color: blue;
+  background-color: transparent;
+  border: 0;
+  border-radius: 4px;
+  border: 1px solid blue;
+  cursor: pointer;
+  transition: background-color .25s ease-in-out;
+}
 
-
-
+.btnNewGame:hover{
+	background-color: blue;
+	color: white;
+}

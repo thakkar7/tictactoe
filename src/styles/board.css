@@ -1,11 +1,29 @@
 .bodyDiv{
-  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+  margin: 0;
+  padding:3%;
+  background-image: linear-gradient(to right top, #62D785 0%, #fe9aff 75%);
   height : 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+}
+
+.playerNames{
+  font-family: 'Girassol',cursive;
+}
+
+.scoreOne{
+  position: relative;
+  right: 10px;
+}
+.scoreTwo{
+  position: relative;
+  left: 10px;
+}
+.boardLink{
+  margin-top: 1%;
 }
 
 .board-wrapper {
@@ -30,6 +48,7 @@
   margin-bottom: 8px;
   font: 700 18px / 1.618 sans-serif;
   list-style-type: none;
+  font-family: 'Girassol',cursive;
 }
 
 .board-history {
@@ -43,4 +62,18 @@
 
 .board-footer {
   width: 100%;
+}
+
+.bcb{
+  background-color: #2980b9;
+  animation-duration:  3.5s;
+  animation-name: fade;
+}
+
+@keyframes fade{
+  from{
+    background-color: blue;
+  }to{
+    background-color: #2980b9;
+  }
 }
